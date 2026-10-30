@@ -1,6 +1,6 @@
 spring:
   application:
-    name: yu-ai-agent
+    name: xingtu-agent-platform
   profiles:
     active: local
 # 临时注释掉，便于大家开发调试和部署（实际填写 PgVector 数据库信息）
@@ -10,8 +10,8 @@ spring:
 #    password: 123456
   ai:
     dashscope:
-      # 需要替换为你自己的 key
-      api-key: sk-ws-H.YHXDLEE.SxjM.MEQCIBP_xmKrdJGq2cKSw7_u86e0X6sZ1SgOObpCZWEJlW2yAiAqDhfNc8xH0wHPUGgmn_9CghTXrs1Af82jrbxNJsudGw
+      # 从环境变量注入，避免密钥进入源码和软著提交材料
+      api-key: ${DASHSCOPE_API_KEY:}
       chat:
         options:
           model: qwen-plus
@@ -50,7 +50,7 @@ springdoc:
   group-configs:
     - group: 'default'
       paths-to-match: '/**'
-      packages-to-scan: com.yupi.yuaiagent.controller
+      packages-to-scan: com.xingtu.platform.controller
 # knife4j config
 knife4j:
   enable: true
@@ -58,8 +58,7 @@ knife4j:
     language: zh_cn
 # searchAPI
 search-api:
-  # 需要替换为你自己的 key
-  api-key: dbNwHUDGyrYpj8xhXZAPkcfU
+  api-key: ${SEARCH_API_KEY:}
 # 修改日志级别，查看 Spring AI 更多调用细节
 logging:
   level:

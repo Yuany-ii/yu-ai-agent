@@ -7,17 +7,17 @@
         "@amap/amap-maps-mcp-server"
       ],
       "env": {
-        "AMAP_MAPS_API_KEY": "9268df1c67ff76d51a8440fec16dcf94"
+        "AMAP_MAPS_API_KEY": "${AMAP_MAPS_API_KEY:}"
       }
     },
-    "yu-image-search-mcp-server": {
+    "xingtu-image-search-mcp": {
       "command": "java",
       "args": [
         "-Dspring.ai.mcp.server.stdio=true",
         "-Dspring.main.web-application-type=none",
         "-Dlogging.pattern.console=",
         "-jar",
-        "yu-image-search-mcp-server/target/yu-image-search-mcp-server-0.0.1-SNAPSHOT.jar"
+        "xingtu-image-search-mcp/target/xingtu-image-search-mcp-0.0.1-SNAPSHOT.jar"
       ],
       "env": {}
     }
